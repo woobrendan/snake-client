@@ -3,6 +3,7 @@ const {setupInput} = require('./input');
 
 
 console.log('Connection ...');
-connect();
+const returnObj = connect(); //returns object
 
-setupInput();
+setupInput(returnObj);
+
