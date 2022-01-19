@@ -7,6 +7,11 @@ const handleUserInput = (key) => {
     's': 'Move: down', 
     'd': 'Move: right'
   };
+  const specialMessage = {
+    h: 'Say: Hello World',
+    t: 'Say: Toaster',
+    m: "Say: Snakes on a plane!" 
+  }
   if (key === '\u0003') {
     process.exit();
   }
@@ -14,6 +19,12 @@ const handleUserInput = (key) => {
     if (key === letter) {
       // console.log(movement[letter]);
       connection.write(movement[letter])
+    }
+  }
+  for (let message in specialMessage) {
+    if (key === message) {
+      // console.log(movement[letter]);
+      connection.write(specialMessage[message]);
     }
   }
 };
