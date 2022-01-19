@@ -1,30 +1,13 @@
+const {sendMessage} = require('./constants');
 let connection;
 
 const handleUserInput = (key) => {
-  let movement = {
-    'w': 'Move: up', 
-    'a': "Move: left",
-    's': 'Move: down', 
-    'd': 'Move: right'
-  };
-  const specialMessage = {
-    h: 'Say: Hello World',
-    t: 'Say: Toaster',
-    m: "Say: Snakes on a plane!" 
-  }
   if (key === '\u0003') {
     process.exit();
   }
-  for (let letter in movement) {
+  for (let letter in sendMessage) {
     if (key === letter) {
-      // console.log(movement[letter]);
-      connection.write(movement[letter])
-    }
-  }
-  for (let message in specialMessage) {
-    if (key === message) {
-      // console.log(movement[letter]);
-      connection.write(specialMessage[message]);
+      connection.write(sendMessage[letter])
     }
   }
 };
